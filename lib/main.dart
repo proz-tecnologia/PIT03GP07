@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proz_project_finance/controller/transaction_controller.dart';
+import 'package:proz_project_finance/model/transaction.dart';
 import 'package:proz_project_finance/ui/pages/home/home_page.dart';
+import 'package:proz_project_finance/ui/pages/new_revenue/new_transaction_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => TransactionController(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -16,8 +25,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: 'Roboto',
       ),
-      home: const homePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => HomePage(),
+        '/new-income':(context) => NewTransactionPage(TransactionType.INCOME),
+        '/new-expense':(context) => NewTransactionPage(TransactionType.EXPENSE),
+      },
     );
   }
 }
