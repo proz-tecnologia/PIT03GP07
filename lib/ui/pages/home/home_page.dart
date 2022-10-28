@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -41,57 +39,57 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: const DrawerMenu(),
         body: Consumer<TransactionController>(
-          builder: (context, transactionController, chuld) =>
-              SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  padding: EdgeInsets.only(left: 24, right: 24),
-                  height: 165,
-                  decoration: const BoxDecoration(
-                    color: Color(0xff1E90FF),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(20),
-                      bottomRight: Radius.circular(
-                        20,
-                      ),
+          builder: (context, transactionController, chuld) => Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 200,
+                padding: EdgeInsets.only(
+                  left: 24,
+                  right: 24,
+                ),
+                decoration: const BoxDecoration(
+                  color: Color(0xff1E90FF),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(
+                      20,
                     ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      AccontBalance(
-                          isVisibility,
-                          transactionController.getTotalIncoming -
-                              transactionController.getTotalOutcoming),
-                      IconButton(
-                        onPressed: changeVisivility,
-                        icon: Icon(
-                          isVisibility
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          color: Colors.white,
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      MovimentValue(
-                          isVisibility,
-                          transactionController.getTotalOutcoming,
-                          transactionController.getTotalIncoming),
-                    ],
-                  ),
                 ),
-                SizedBox(
-                  height: 40,
+                child: Column(
+                  // crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    AccontBalance(
+                        isVisibility,
+                        transactionController.getTotalIncoming -
+                            transactionController.getTotalOutcoming),
+                    IconButton(
+                      onPressed: changeVisivility,
+                      icon: Icon(
+                        isVisibility ? Icons.visibility : Icons.visibility_off,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    MovimentValue(
+                        isVisibility,
+                        transactionController.getTotalOutcoming,
+                        transactionController.getTotalIncoming),
+                  ],
                 ),
-               TitleBody(title: "Transações"),
-              
-              CardTransaction(transactionController.transactions)
-              ],
-            ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              TitleBody(title: "Transações"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: CardTransaction(transactionController.transactions),
+              )
+            ],
           ),
         ),
         floatingActionButton: const FloatingButtonAnimate(),
