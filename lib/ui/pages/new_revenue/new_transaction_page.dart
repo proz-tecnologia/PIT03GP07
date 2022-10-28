@@ -171,6 +171,7 @@ class _NewTransactionPageState extends State<NewTransactionPage> {
                       transactionType: _transactionType,
                       dateTime: _dateTime,
                       description: _description,
+                      category: _category,
                       value: _value);
                   Provider.of<TransactionController>(context, listen: false)
                       .add(transaction);

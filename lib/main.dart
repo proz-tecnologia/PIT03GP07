@@ -4,6 +4,7 @@ import 'package:proz_project_finance/controller/transaction_controller.dart';
 import 'package:proz_project_finance/model/transaction.dart';
 import 'package:proz_project_finance/ui/pages/home/home_page.dart';
 import 'package:proz_project_finance/ui/pages/new_revenue/new_transaction_page.dart';
+import 'package:proz_project_finance/ui/pages/splash/splash_page.dart';
 
 void main() {
   runApp(
@@ -27,9 +28,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Roboto',
       ),
-      initialRoute: '/',
+      initialRoute: '/splash',
       routes: {
-        '/': (context) => HomePage(),
+        '/': (context) => const HomePage(),
+        '/splash':(context) => const SplashPage(),
         '/new-income':(context) => NewTransactionPage(TransactionType.INCOME),
         '/new-expense':(context) => NewTransactionPage(TransactionType.EXPENSE),
       },

@@ -1,16 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:proz_project_finance/controller/transaction_controller.dart';
-import 'package:proz_project_finance/model/transaction.dart';
-import 'package:proz_project_finance/strings.dart';
-import 'package:proz_project_finance/ui/components/item_transaction.dart';
-import 'package:proz_project_finance/ui/pages/home/widgets/card_transactions.dart';
-import 'package:proz_project_finance/ui/pages/home/widgets/title_body.dart';
-import 'package:proz_project_finance/ui/pages/home/widgets/account_balance.dart';
-import 'package:proz_project_finance/ui/pages/home/widgets/drawer_menu.dart';
+import 'package:proz_project_finance/ui/pages/home/home_content_page.dart';
 import 'package:proz_project_finance/ui/pages/home/widgets/floating_action.dart';
-import 'package:proz_project_finance/ui/pages/home/widgets/movement_value.dart';
+import 'package:proz_project_finance/ui/pages/trasactions/transactions_page.dart';
+import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,79 +12,55 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isVisibility = true;
+  int pageCurrent = 0;
 
-  void changeVisivility() {
-    setState(() {
-      isVisibility = !isVisibility;
-    });
-  }
+  final contollerPage = PageController();
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xffe8f5ff),
-        appBar: AppBar(
-          backgroundColor: const Color(0xff1E90FF),
-          elevation: 0,
-        ),
-        drawer: const DrawerMenu(),
-        body: Consumer<TransactionController>(
-          builder: (context, transactionController, chuld) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                height: 200,
-                padding: EdgeInsets.only(
-                  left: 24,
-                  right: 24,
-                ),
-                decoration: const BoxDecoration(
-                  color: Color(0xff1E90FF),
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(
-                      20,
-                    ),
-                  ),
-                ),
-                child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    AccontBalance(
-                        isVisibility,
-                        transactionController.getTotalIncoming -
-                            transactionController.getTotalOutcoming),
-                    IconButton(
-                      onPressed: changeVisivility,
-                      icon: Icon(
-                        isVisibility ? Icons.visibility : Icons.visibility_off,
-                        color: Colors.white,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    MovimentValue(
-                        isVisibility,
-                        transactionController.getTotalOutcoming,
-                        transactionController.getTotalIncoming),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 40,
-              ),
-              TitleBody(title: "Transações"),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: CardTransaction(transactionController.transactions),
-              )
-            ],
-          ),
+        backgroundColor: const Color(0xffe8f5ff),
+        body: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: contollerPage,
+          children: const [
+            HomeContentPage(),
+            TransactionsPage(),
+          ],
         ),
         floatingActionButton: const FloatingButtonAnimate(),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
+        bottomNavigationBar: StylishBottomBar(
+          padding: const EdgeInsets.all(8.0),
+          bubbleFillStyle: BubbleFillStyle.fill,
+          barStyle: BubbleBarStyle.vertical,
+          fabLocation: StylishBarFabLocation.center,
+          opacity: 0.2,
+          hasNotch: true,
+          currentIndex: pageCurrent,
+          items: [
+            BubbleBarItem(
+              backgroundColor: Colors.blueAccent,
+              icon: const Icon(Icons.home_outlined),
+              title: const  Text("Home",style: TextStyle(color: Colors.black)),
+              activeIcon: const  Icon(Icons.home_outlined, color: Colors.black),
+            ),
+            BubbleBarItem(
+              backgroundColor: Colors.blueAccent,
+              icon: const Icon(Icons.list, color: Colors.black,),
+              activeIcon: const Icon(Icons.list, color: Colors.black,),
+              title: const Text("Transções", style: TextStyle(color: Colors.black))
+            ),
+          ],
+          onTap: (value) {
+            setState(() {
+              pageCurrent = value!;
+            });
+            contollerPage.animateToPage(value!, duration: const Duration(milliseconds: 200), curve: Curves.easeInOut);
+          },
+        )
       ),
     );
   }

@@ -11,7 +11,7 @@ class TransactionController extends ChangeNotifier {
 
   TransactionController() {
     _categories.addAll(CategoryMock.getCategories());
-    // _transactions.addAll(TransactionMock.generateTransactions(10, categories));
+    // _transactions.addAll(TransactionMock.generateTransactions(30, categories));
   }
 
   List<Category> get categories => _categories;
