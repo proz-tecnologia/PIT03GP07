@@ -3,7 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:proz_project_finance/controller/transaction_controller.dart';
 import 'package:proz_project_finance/model/transaction.dart';
 import 'package:proz_project_finance/ui/pages/home/home_page.dart';
-import 'package:proz_project_finance/ui/pages/new_revenue/new_transaction_page.dart';
+import 'package:proz_project_finance/ui/pages/login/login_page.dart';
+import 'package:proz_project_finance/ui/pages/welcome/welcome_page.dart';
+import 'package:proz_project_finance/ui/pages/new_transaction/new_transaction_page.dart';
 import 'package:proz_project_finance/ui/pages/splash/splash_page.dart';
 
 void main() {
@@ -23,7 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Money Belth',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         fontFamily: 'Roboto',
@@ -32,6 +34,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/splash':(context) => const SplashPage(),
+        '/welcome': (context) => const WelcomePage(),
+        '/login':(context) => const LoginPage(),
         '/new-income':(context) => NewTransactionPage(TransactionType.INCOME),
         '/new-expense':(context) => NewTransactionPage(TransactionType.EXPENSE),
       },

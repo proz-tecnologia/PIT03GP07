@@ -36,7 +36,7 @@ class MovimentValue extends StatelessWidget {
               const Text(
                 Strings.APP_REVENUES,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 1,
@@ -48,6 +48,7 @@ class MovimentValue extends StatelessWidget {
               Text(
                  incoming.formatBRL,
                 style:  TextStyle(
+                  fontWeight: FontWeight.w700,
                   color:isVisibility ? Colors.green : Colors.grey[600],
                   fontSize: 15,
                   backgroundColor: isVisibility ? null : Colors.grey[600]
@@ -65,7 +66,7 @@ class MovimentValue extends StatelessWidget {
                const Text(
                 Strings.APP_EXPENSES,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                   fontSize: 14,
                   fontWeight: FontWeight.w700,
                   letterSpacing: 1,
@@ -77,6 +78,7 @@ class MovimentValue extends StatelessWidget {
               Text(
                 isVisibility ? outcoming.formatBRL : "R\$ xxxx",
                 style:  TextStyle(
+                  fontWeight: FontWeight.w700,
                    color:isVisibility ? Colors.red: Colors.grey[600],
                   fontSize: 15,
                   backgroundColor: isVisibility ? null : Colors.grey[600]

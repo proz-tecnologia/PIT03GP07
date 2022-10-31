@@ -11,7 +11,7 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   void init()async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.of(context).pushReplacementNamed('/');
+    Navigator.of(context).pushReplacementNamed('/welcome');
   }
 
   @override
@@ -25,11 +25,22 @@ class _SplashPageState extends State<SplashPage> {
     return Scaffold(
       backgroundColor: Colors.blueAccent,
       body: Center(
-        child: AnimatedCard(
-          curve: Curves.bounceInOut,
-          direction: AnimatedCardDirection.right,
-          duration: const Duration(seconds: 2),
-          child: Center(child: Image.asset('../assets/image/logo.png', height: 250, width: 250,))
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+             AnimatedCard(
+              curve: Curves.elasticInOut,
+              direction: AnimatedCardDirection.left,
+              duration: const Duration(seconds: 2),
+              child: Center(child: Text("MonneyBelt",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),)),
+            ),
+            AnimatedCard(
+              curve: Curves.elasticInOut,
+              direction: AnimatedCardDirection.right,
+              duration: const Duration(seconds: 2),
+              child: Center(child: Image.asset('../assets/image/moneybelth.png', height: 250, width: 250,))
+            ),
+          ],
         ),
       ),
     );

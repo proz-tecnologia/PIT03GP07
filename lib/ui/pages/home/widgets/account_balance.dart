@@ -15,8 +15,9 @@ class AccontBalance extends StatelessWidget {
         const Text(
           "Saldo em conta",
           style: TextStyle(
-            fontSize: 14,
-            color: Colors.white ,
+            fontSize: 12,
+            color: Colors.black ,
+            fontWeight: FontWeight.w500
           ),
         ),
         Padding(
@@ -24,7 +25,7 @@ class AccontBalance extends StatelessWidget {
           child: Text(
            _balance.formatBRL,
             style: TextStyle(
-              color: isVisibility ? Colors.white : Colors.grey[600],
+              color: isVisibility ? Colors.black : Colors.grey[600],
               fontSize: 20,
               backgroundColor: isVisibility ? null : Colors.grey[600]
             ),

@@ -16,21 +16,26 @@ class _ItemTransactionState extends State<ItemTransaction> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8),
-      child: ListTile(
-        leading: Text(
-          "${widget.transaction.dateTime?.day}/${widget.transaction.dateTime?.month}",
-          style: TextStyle(color: getColor(), fontWeight: FontWeight.w600),
-        ),
-        title: Center(
-          child: Column(
-            children: [
-              Text(widget.transaction.description,
-              style: TextStyle(color: getColor(), fontWeight: FontWeight.w600)),
-              Text(widget.transaction.category!.name, style: TextStyle(fontSize: 10),),
-            ],
-          )
-        ),
-        trailing: Text(getValue(), style: TextStyle(color: getColor(), fontWeight: FontWeight.w600)),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+              "${widget.transaction.dateTime?.day}/${widget.transaction.dateTime?.month}",
+              style: TextStyle(color: getColor(), fontWeight: FontWeight.w600),
+            ),
+          ListTile(
+            leading: CircleAvatar(
+              child: widget.transaction.category!.icon,
+              backgroundColor: widget.transaction.category!.color,
+            ),
+            title: Center(
+                child: Text(widget.transaction.description,
+                    style:
+                        TextStyle(color: getColor(), fontWeight: FontWeight.w600))),
+            trailing: Text(getValue(),
+                style: TextStyle(color: getColor(), fontWeight: FontWeight.w600)),
+          ),
+        ],
       ),
     );
   }
@@ -49,7 +54,7 @@ class _ItemTransactionState extends State<ItemTransaction> {
       case TransactionType.INCOME:
         return widget.transaction.value.formatBRL;
       case TransactionType.EXPENSE:
-        return "(${widget.transaction.value.formatBRL})";
+        return "-${widget.transaction.value.formatBRL}";
     }
   }
 }

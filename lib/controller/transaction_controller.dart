@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:proz_project_finance/mock/category_mock.dart';
 import 'package:proz_project_finance/mock/transaction_mock.dart';
 import 'package:proz_project_finance/model/category.dart';
+import 'package:proz_project_finance/model/total_category.dart';
 import 'package:proz_project_finance/model/transaction.dart';
 
 class TransactionController extends ChangeNotifier {
@@ -11,11 +12,21 @@ class TransactionController extends ChangeNotifier {
 
   TransactionController() {
     _categories.addAll(CategoryMock.getCategories());
-    // _transactions.addAll(TransactionMock.generateTransactions(30, categories));
+    _transactions.addAll(TransactionMock.generateTransactions(30, categories));
   }
 
   List<Category> get categories => _categories;
   List<Transaction> get transactions => _transactions;
+
+  List<Transaction> get transactionIncome {
+    List<Transaction> incomes = _transactions.where((element) => element.transactionType == TransactionType.INCOME).toList();
+    return incomes;
+  }
+
+  List<Transaction> get transactionOutcome {
+    List<Transaction> incomes = _transactions.where((element) => element.transactionType == TransactionType.EXPENSE).toList();
+    return incomes;
+  }
 
   double get getTotalIncoming {
     double value = 0;

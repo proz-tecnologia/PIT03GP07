@@ -10,43 +10,37 @@ class TransactionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffe8f5ff),
-      appBar: AppBar(
-        title: const Text("Transações"),
-      ),
       body: Consumer<TransactionController>(
-          builder: (context, transactionController, index) => Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: SingleChildScrollView(
-              child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10,left: 15,right: 15),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children:const  [
-                          Text(
-                            "Data",
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "Descrição",
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            "Valor",
-                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                          ),
-                        ],
-                      ),
+          builder: (context, transactionController, index) => SingleChildScrollView(
+            child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10,left: 15,right: 15),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children:const  [
+                        Text(
+                          "Data",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "Descrição",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "Valor",
+                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                        ),
+                      ],
                     ),
-                   ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: transactionController.transactions.length,
-                    itemBuilder: (context, index) => ItemTransaction(transactionController.transactions[index])
-                  )
-                  ],
-                ),
-            ),
+                  ),
+                 ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: transactionController.transactions.length,
+                  itemBuilder: (context, index) => ItemTransaction(transactionController.transactions[index])
+                )
+                ],
+              ),
           )
         ),
     );

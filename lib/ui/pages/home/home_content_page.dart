@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proz_project_finance/controller/transaction_controller.dart';
 import 'package:proz_project_finance/ui/pages/home/widgets/account_balance.dart';
+import 'package:proz_project_finance/ui/pages/home/widgets/card_chart.dart';
 import 'package:proz_project_finance/ui/pages/home/widgets/card_transactions.dart';
 import 'package:proz_project_finance/ui/pages/home/widgets/movement_value.dart';
 import 'package:proz_project_finance/ui/pages/home/widgets/title_body.dart';
@@ -31,11 +32,11 @@ class _HomeContentPageState extends State<HomeContentPage> {
           Container(
             padding: const EdgeInsets.all(10.0),
             decoration: const BoxDecoration(
-              color: Color(0xff1E90FF),
+              color: Colors.white,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
+                bottomLeft: Radius.circular(30),
                 bottomRight: Radius.circular(
-                  20,
+                  30,
                 ),
               ),
             ),
@@ -50,11 +51,11 @@ class _HomeContentPageState extends State<HomeContentPage> {
                   onPressed: changeVisivility,
                   icon: Icon(
                     isVisibility ? Icons.visibility : Icons.visibility_off,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 15,
                 ),
                 MovimentValue(
                     isVisibility,
@@ -66,11 +67,15 @@ class _HomeContentPageState extends State<HomeContentPage> {
           const SizedBox(
             height: 40,
           ),
-          TitleBody(title: "Transações"),
           const SizedBox(
             height: 5,
           ),
-          CardTransaction(transactionController.transactions)
+          CardTransaction(
+              transactionController.getTotalIncoming -
+                  transactionController.getTotalOutcoming,
+              transactionController.transactionIncome,
+          ),
+          // CardChart(transactionController.getTotalOutcoming, transactionController.transactionOutcome)
         ],
       ),
     );
