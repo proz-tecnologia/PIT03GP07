@@ -38,7 +38,7 @@ class _SplashPageState extends State<SplashPage> {
               curve: Curves.elasticInOut,
               direction: AnimatedCardDirection.right,
               duration: const Duration(seconds: 2),
-              child: Center(child: Image.asset('../assets/image/moneybelth.png', height: 250, width: 250,))
+              child: Center(child: Image.asset('assets/image/moneybelth.png', height: 250, width: 250,))
             ),
           ],
         ),

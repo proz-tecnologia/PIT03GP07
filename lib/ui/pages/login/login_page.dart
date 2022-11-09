@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                   radius: 30,
                   child: Padding(
                     padding: const EdgeInsets.all(3.0),
-                    child: Image.asset('../assets/image/moneybelth.png'),
+                    child: Image.asset('assets/image/moneybelth.png'),
                   ),
                 ),
                 SizedBox(
