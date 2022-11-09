@@ -24,7 +24,7 @@ class WelcomePage extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Center(
-                  child: Image.asset('../assets/image/welcome_image.png'),
+                  child: Image.asset('assets/image/welcome_image.png'),
                 ),
               ),
               Text(
