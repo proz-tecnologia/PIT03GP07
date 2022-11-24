@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class TitleBody extends StatelessWidget {
-  TitleBody({super.key, required this.title});
+  TitleBody({super.key, required this.title, required Text Title});
 
   String title;
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:proz_project_finance/strings.dart';
 
 class FloatingButtonAnimate extends StatefulWidget {
   const FloatingButtonAnimate({super.key});
@@ -20,17 +21,17 @@ class _FloatingButtonAnimateState extends State<FloatingButtonAnimate> {
             child: const Icon(Icons.trending_down),
             labelBackgroundColor: Colors.red,
             foregroundColor: Colors.red,
-            label: "Nova Despesa",
+            label: Strings.HOME_NEWEXPENSES,
             onTap: () {
-              Navigator.of(context).pushNamed('/new-expense');
+              Navigator.of(context).pushNamed(Strings.HOME_NEWEXPENSES);
             }),
         SpeedDialChild(
             child: const Icon(Icons.trending_up),
             labelBackgroundColor: Colors.green,
             foregroundColor: Colors.green,
-            label: "Nova Receita",
+            label: Strings.HOME_NEWINCOME,
             onTap: () {
-              Navigator.of(context).pushNamed('/new-income');
+              Navigator.of(context).pushNamed(Strings.HOME_NEWREVENUES);
             }),
       ],
     );
