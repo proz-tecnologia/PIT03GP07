@@ -26,7 +26,7 @@ class DrawerMenu extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
-                    child: Text(" Usuário"),
+                    child: Text(Strings.HOME_USER),
                   ),
                 ],
               ),
@@ -39,13 +39,19 @@ class DrawerMenu extends StatelessWidget {
             ),
             ListTile(
               selected: false,
-              leading: const Icon(Icons.account_balance, color: Colors.blue,),
+              leading: const Icon(
+                Icons.account_balance,
+                color: Colors.blue,
+              ),
               title: const Text(Strings.APP_ACCOUNT),
               onTap: () => null,
             ),
             ListTile(
               selected: false,
-              leading: const Icon(Icons.attach_money, color: Colors.blue,),
+              leading: const Icon(
+                Icons.attach_money,
+                color: Colors.blue,
+              ),
               title: const Text(Strings.APP_TRANSACTIONS),
               onTap: () => null,
             ),
