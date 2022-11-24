@@ -13,15 +13,12 @@ class CardTransaction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: TitleBody(Strings.APP_REVENUES),
-      SizedBox(
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+      TitleBody(title: Strings.APP_REVENUES),
+      const SizedBox(
         height: 5,
       ),
       Card(
-        margin: EdgeInsets.symmetric(horizontal: 12),
-        elevation: 4,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
           child: Column(
@@ -41,17 +38,16 @@ class CardTransaction extends StatelessWidget {
                     Expanded(
                       flex: 10,
                       child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const Text(
-                              Strings.HOME_BALANCE,),
-                              Text(totalIncoming.formatBRL),
-                            ),
-                          ])),
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(Strings.HOME_BALANCE),
+                          Text(totalIncoming.formatBRL),
+                        ],
+                      ),
                     ),
                     Expanded(
                       child: IconButton(
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.add,
                           color: Colors.blueAccent,
                         ),
@@ -62,22 +58,18 @@ class CardTransaction extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
-              returnValee(),
             ],
           ),
         ),
       ),
-    );
+    ]);
   }
 
   Widget returnValee() {
     if (transaction.isEmpty) {
       return Column(
-        children: [
-          const Center(
+        children: const [
+          Center(
             child: Text(
               Strings.HOME_NEWREVENUES,
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
