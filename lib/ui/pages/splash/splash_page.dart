@@ -11,7 +11,8 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   void init()async {
     await Future.delayed(const Duration(seconds: 3));
-    Navigator.of(context).pushReplacementNamed('/welcome');
+    // ignore: use_build_context_synchronously
+    Navigator.of(context).pushReplacementNamed('/home');
   }
 
   @override
@@ -32,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
               curve: Curves.elasticInOut,
               direction: AnimatedCardDirection.left,
               duration: const Duration(seconds: 2),
-              child: Center(child: Text("MonneyBelt",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),)),
+              child: const Center(child: Text("MoneyBelt",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600),)),
             ),
             AnimatedCard(
               curve: Curves.elasticInOut,
