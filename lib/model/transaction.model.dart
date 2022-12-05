@@ -53,4 +53,4 @@ class Transaction {
   }
 }
 
-enum TransactionType { INCOME, EXPENSE }
+enum TransactionType { INCOME, EXPENSE, TRANSACTIONS }
