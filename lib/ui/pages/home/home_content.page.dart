@@ -3,7 +3,7 @@ import 'package:belt/controller/transactions.controller.dart';
 import 'package:belt/ui/pages/home/widget/balance.dart';
 import 'package:belt/ui/pages/home/widget/card_graphics.dart';
 import 'package:belt/ui/pages/home/widget/cards_incoming_outcoming.dart';
-import 'package:belt/ui/pages/home/widget/container_empaty.dart';
+import 'package:belt/components/container_empaty.dart';
 import 'package:belt/ui/pages/home/widget/progress_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -68,7 +68,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
               const SizedBox(height: 40),
               widget.controller.isLoading
                   ? const Expanded(child: ProgressContainer())
-                  : widget.controller.transactions.isEmpty
+                  : widget.controller.getAllTransaction.isEmpty
                       ? const Expanded(child: ContainerEmpaty())
                       : ContainerCard(child: CardChart(transaction: widget.controller.getListCategoryValue,totalOutcoming: widget.controller.getTotalOutcoming,),)
             ],

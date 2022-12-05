@@ -20,7 +20,7 @@ abstract class TransactionControllerBase with Store {
   TransactionControllerBase(this._repository);
 
   @observable
-  ObservableList<Transaction> transactions = ObservableList<Transaction>.of([]);
+  ObservableList<Transaction> _transactions = ObservableList<Transaction>();
 
   @observable
   bool isLoading = false;
@@ -30,15 +30,17 @@ abstract class TransactionControllerBase with Store {
     isLoading = true;
     var response = await _repository.getAll();
     for (var element in response.data!) {
-      transactions.add(element);
+      _transactions.add(element);
     }
     isLoading = false;
-    transactions.sort((a, b) => b.dateTime!.compareTo(a.dateTime!));
+    _transactions.sort((a, b) => b.dateTime!.compareTo(a.dateTime!));
   }
+
+  List<Transaction> get getAllTransaction => _transactions;
 
   double get getTotalIncoming {
     double value = 0;
-    var filtered = transactions
+    var filtered = _transactions
         .where((element) => element.transactionType == TransactionType.INCOME);
     for (var transaction in filtered) {
       value += transaction.value;
@@ -48,7 +50,7 @@ abstract class TransactionControllerBase with Store {
 
   double get getTotalOutcoming {
     double value = 0;
-    var filtered = transactions
+    var filtered = _transactions
         .where((element) => element.transactionType == TransactionType.EXPENSE);
     for (var transaction in filtered) {
       value += transaction.value;
@@ -66,7 +68,7 @@ abstract class TransactionControllerBase with Store {
 
     for (var element in categorys) {
       if (element.value == 0.0) {
-        for (var item in transactions) {
+        for (var item in _transactions) {
           if (element.name == item.category.name && item.transactionType == TransactionType.EXPENSE) {
             element.value += item.value;
           }
