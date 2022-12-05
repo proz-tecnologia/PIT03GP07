@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: controllerPage,
-        children: [ HomeContentPage(controller: _controller,),TransactionsPage(controller: _controller,)],
+        children: [ HomeContentPage(controller: _controller,),TransactionsPage(_controller.getAllTransaction, _controller.totalBalance)],
       ),
       bottomNavigationBar: StylishBottomBar(
         padding: const EdgeInsets.all(8),
