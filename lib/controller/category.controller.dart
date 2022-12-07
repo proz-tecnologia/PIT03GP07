@@ -11,7 +11,7 @@ abstract class CategoryControllerBase with Store {
   CategoryControllerBase(this._repository);
 
   @observable
-  ObservableList<Category> categorys = ObservableList<Category>.of([Category(name: "Investimentos"),Category(name: "Sálario"),Category(name: "Renda Extra")]);
+  ObservableList<Category> categorys = ObservableList<Category>.of([Category(name: "Investimentos"),Category(name: "Salário"),Category(name: "Renda Extra")]);
 
 
   @observable
