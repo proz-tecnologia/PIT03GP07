@@ -75,7 +75,8 @@ abstract class TransactionControllerBase with Store {
         }
       }
     }
-
-    return categorys;
+    
+    var filtred = categorys.where((element) => element.value > 0.0);
+    return filtred.toList();
   }
 }
