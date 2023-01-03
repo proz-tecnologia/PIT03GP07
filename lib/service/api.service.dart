@@ -3,8 +3,7 @@ import 'package:belt/model/transaction.model.dart';
 import 'package:dio/dio.dart';
 
 class APIService {
-  final options = BaseOptions(
-    baseUrl: "https://crudcrud.com/api/e025142ab6bc44569f418b56cb4d4e1f");
+  final options = BaseOptions(baseUrl: "1bb51d259b934161920f4f74fe6986ac");
 
   Future<Response> getAllTransaction() async {
     try {
@@ -13,7 +12,8 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
@@ -25,7 +25,8 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
@@ -36,29 +37,33 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
   Future<Response> updateTransaction(Transaction item) async {
     try {
-      return await Dio(options).put('/transactions/${item.id}', data: item.toJson());
+      return await Dio(options)
+          .put('/transactions/${item.id}', data: item.toJson());
     } on DioError catch (e) {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
-   Future<Response> deleteTransaction(Transaction item) async {
+  Future<Response> deleteTransaction(Transaction item) async {
     try {
       return await Dio(options).delete('/transactions/${item.id}');
     } on DioError catch (e) {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
@@ -69,7 +74,8 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
@@ -81,7 +87,8 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
@@ -92,30 +99,33 @@ class APIService {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
   Future<Response> updateCategory(Category item) async {
     try {
-      return await Dio(options).put('/categorys/${item.id}', data: item.toJson());
+      return await Dio(options)
+          .put('/categorys/${item.id}', data: item.toJson());
     } on DioError catch (e) {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
 
-   Future<Response> deleteCategory(Category item) async {
+  Future<Response> deleteCategory(Category item) async {
     try {
       return await Dio(options).delete('/categorys/${item.id}');
     } on DioError catch (e) {
       if (e.response != null) {
         return e.response!;
       }
-      throw Exception("Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
+      throw Exception(
+          "Ops! Ocorreu uma falha no servidor, tente novamente mais tarde!");
     }
   }
-
 }

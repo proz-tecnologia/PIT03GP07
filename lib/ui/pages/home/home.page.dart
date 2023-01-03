@@ -20,7 +20,8 @@ class _HomePageState extends State<HomePage> {
 
   final controllerPage = PageController();
 
-  final _controller = TransactionController(TransactionRepositoryImpl(APIService()));
+  final _controller =
+      TransactionController(TransactionRepositoryImpl(APIService()));
 
   @override
   void initState() {
@@ -34,7 +35,13 @@ class _HomePageState extends State<HomePage> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: controllerPage,
-        children: [ HomeContentPage(controller: _controller,),TransactionsPage(_controller.getAllTransaction, _controller.totalBalance)],
+        children: [
+          HomeContentPage(
+            controller: _controller,
+          ),
+          TransactionsPage(
+              _controller.getAllTransaction, _controller.totalBalance)
+        ],
       ),
       bottomNavigationBar: StylishBottomBar(
         padding: const EdgeInsets.all(8),
@@ -45,14 +52,14 @@ class _HomePageState extends State<HomePage> {
         hasNotch: true,
         items: [
           BubbleBarItem(
-            backgroundColor: Colors.blueAccent,
+            backgroundColor: Colors.white,
             icon: const Icon(Icons.home_outlined),
             title: const Text("home", style: TextStyle(color: Colors.black)),
-            activeIcon: const Icon(Icons.home_outlined, color: Colors.black),
+            activeIcon: const Icon(Icons.home, color: Colors.black),
           ),
           BubbleBarItem(
-              backgroundColor: Colors.blueAccent,
-              icon: const Icon(Icons.list, color: Colors.black),
+              backgroundColor: Colors.white,
+              icon: const Icon(Icons.list_outlined, color: Colors.black),
               activeIcon: const Icon(Icons.list, color: Colors.black),
               title: const Text("Transações",
                   style: TextStyle(color: Colors.black)))
@@ -61,8 +68,11 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             pageCurrent = value!;
           });
-          controllerPage.animateToPage(value!, 
-          duration: const Duration(microseconds: 200), curve: Curves.easeInOut,);
+          controllerPage.animateToPage(
+            value!,
+            duration: const Duration(microseconds: 200),
+            curve: Curves.easeInOut,
+          );
         },
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,

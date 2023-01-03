@@ -11,8 +11,13 @@ class ContainerEmpaty extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Center(child: Text("Você ainda não possui movimentações", style: TextStyle(fontSize: 16.0),)),
-          SizedBox(height: 300,child: Lottie.asset('assets/lottie/money.json')),
+          const Center(
+              child: Text(
+            "Você ainda não possui movimentações",
+            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
+          )),
+          SizedBox(
+              height: 300, child: Lottie.asset('assets/lottie/money.json')),
         ],
       ),
     );
