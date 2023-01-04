@@ -21,7 +21,6 @@ class APIService {
     try {
       return await Dio(options).post('/transactions', data: item.toJson());
     } on DioError catch (e) {
-      print(e);
       if (e.response != null) {
         return e.response!;
       }
@@ -83,7 +82,6 @@ class APIService {
     try {
       return await Dio(options).post('/categorys', data: item.toJson());
     } on DioError catch (e) {
-      print(e);
       if (e.response != null) {
         return e.response!;
       }

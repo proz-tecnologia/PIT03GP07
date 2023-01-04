@@ -1,5 +1,4 @@
 import 'package:belt/components/list_title.dart';
-import 'package:belt/controller/transactions.controller.dart';
 import 'package:belt/controller/transactions_page.controller.dart';
 import 'package:belt/extension/extension_double.dart';
 import 'package:belt/model/transaction.model.dart';

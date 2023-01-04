@@ -78,7 +78,6 @@ abstract class TransactionFormControllerBase with Store {
   }
 
   Future<APIResponse<Transaction>> save() async {
-    print(transaction);
     return await _repository.add(transaction);
   }
 }
