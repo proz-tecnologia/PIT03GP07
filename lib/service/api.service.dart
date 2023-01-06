@@ -3,7 +3,7 @@ import 'package:belt/model/transaction.model.dart';
 import 'package:dio/dio.dart';
 
 class APIService {
-  final options = BaseOptions(baseUrl: "1bb51d259b934161920f4f74fe6986ac");
+  final options = BaseOptions(baseUrl: "https://crudcrud.com/api/33486efdb12a42678afa5b403336b984");
 
   Future<Response> getAllTransaction() async {
     try {

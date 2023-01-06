@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:animated_card/animated_card.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatefulWidget {
@@ -9,17 +12,24 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  void init()async {
-    await Future.delayed(const Duration(seconds: 3));
-    // ignore: use_build_context_synchronously
-    Navigator.of(context).pushReplacementNamed('/home');
-  }
+  StreamSubscription? _streamSubscription;
 
   @override
   void initState() {
-    init();
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => init());
   }
+
+  Future init()async {
+    await Future.delayed(const Duration(seconds: 3));
+    _streamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) { 
+      if (user == null) {
+        Navigator.pushReplacementNamed(context, '/login');
+      }
+    });
+    Navigator.of(context).pushReplacementNamed('/home');
+  }
+
 
   @override
   Widget build(BuildContext context) {
