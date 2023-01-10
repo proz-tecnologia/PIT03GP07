@@ -42,7 +42,7 @@ class _NewTransactionState extends State<NewTransaction> {
     _controller.saveTransactionType(widget.transactionType);
     _context = context;
     _alertTransactionDialog = AlertTransactionDialog(context);
-    _progressDialog = ProgressDialog(context);
+    _progressDialog = ProgressDialog();
   }
 
   @override
@@ -193,7 +193,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   void save() async {
     if (_formKey.currentState!.validate()) {
-      _progressDialog.show();
+      _progressDialog.show("olá");
 
       _formKey.currentState!.save();
       final response = await _controller.save();

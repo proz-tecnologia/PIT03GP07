@@ -1,8 +1,13 @@
 import 'dart:async';
 
 import 'package:animated_card/animated_card.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+
+import '../../../model/person.model.dart';
+import '../../../store/user.store.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -22,12 +27,20 @@ class _SplashPageState extends State<SplashPage> {
 
   Future init()async {
     await Future.delayed(const Duration(seconds: 3));
-    _streamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) { 
+    _streamSubscription = FirebaseAuth.instance.authStateChanges().listen((user) async { 
       if (user == null) {
-        Navigator.pushReplacementNamed(context, '/login');
+        Navigator.pushReplacementNamed(context, "/login");
+      } else {
+        DocumentSnapshot snapshot = await FirebaseFirestore.instance
+            .collection("users")
+            .doc(FirebaseAuth.instance.currentUser!.uid)
+            .get();
+        Person person =
+            Person.fromFirestore(snapshot.data() as Map<String, dynamic>);
+        GetIt.instance.get<UserStore>().loadPerson(person);
+        Navigator.pushReplacementNamed(context, "/home");
       }
     });
-    Navigator.of(context).pushReplacementNamed('/home');
   }
 
 

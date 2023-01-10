@@ -1,33 +1,32 @@
 import 'package:flutter/material.dart';
 
+import '../navigator_key.dart';
+
 class ProgressDialog {
-  BuildContext context;
   bool _isShowing = false;
 
-  ProgressDialog(this.context);
-
-  void show() {
+  show(String message) {
     if (_isShowing) return;
     _isShowing = true;
     showDialog(
-        context: context,
+        context: navigatorKey.currentContext!,
         barrierDismissible: false,
         builder: (_) => AlertDialog(
-              backgroundColor: Colors.white,
+              backgroundColor: Colors.blue,
               content: SizedBox(
                 height: 140,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    CircularProgressIndicator(
-                      color: Colors.blue,
+                  children: [
+                    const CircularProgressIndicator(
+                      color: Colors.white,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Text(
-                      "Processando...",
-                      style: TextStyle(color: Colors.blue),
+                      message,
+                      style: const TextStyle(color: Colors.white),
                     )
                   ],
                 ),
@@ -35,9 +34,9 @@ class ProgressDialog {
             ));
   }
 
-  void hide() {
+  hide() {
     if (!_isShowing) return;
     _isShowing = false;
-    Navigator.pop(context);
+    navigatorKey.currentState!.pop();
   }
 }
