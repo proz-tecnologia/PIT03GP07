@@ -11,13 +11,12 @@ class BalanceValue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 10),
         const Center(
             child: Text(
           "Saldo Disponível",
-          style: TextStyle( fontSize: 16, fontWeight: FontWeight.w600),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         )),
-        const SizedBox(height: 5),
+        const SizedBox(height: 10),
         Center(
             child: Text(
           isVisibility

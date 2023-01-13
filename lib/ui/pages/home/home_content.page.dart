@@ -31,7 +31,7 @@ class _HomeContentPageState extends State<HomeContentPage> {
     return SafeArea(
       child: Observer(
         builder: (_) => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 35),
           child: Column(
             children: [
               Container(
@@ -52,7 +52,9 @@ class _HomeContentPageState extends State<HomeContentPage> {
                     IconButton(
                         onPressed: changedVisibility,
                         icon: Icon(
-                          isVisibility ? Icons.visibility_off : Icons.visibility,
+                          isVisibility
+                              ? Icons.visibility_off
+                              : Icons.visibility,
                           size: 25,
                         )),
                     const SizedBox(height: 10),
@@ -70,7 +72,12 @@ class _HomeContentPageState extends State<HomeContentPage> {
                   ? const Expanded(child: ProgressContainer())
                   : widget.controller.getAllTransaction.isEmpty
                       ? const Expanded(child: ContainerEmpaty())
-                      : ContainerCard(child: CardChart(transaction: widget.controller.getListCategoryValue,totalOutcoming: widget.controller.getTotalOutcoming,),)
+                      : ContainerCard(
+                          child: CardChart(
+                            transaction: widget.controller.getListCategoryValue,
+                            totalOutcoming: widget.controller.getTotalOutcoming,
+                          ),
+                        )
             ],
           ),
         ),

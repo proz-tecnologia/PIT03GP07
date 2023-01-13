@@ -1,5 +1,4 @@
 import 'package:belt/components/list_title.dart';
-import 'package:belt/controller/transactions.controller.dart';
 import 'package:belt/controller/transactions_page.controller.dart';
 import 'package:belt/extension/extension_double.dart';
 import 'package:belt/model/transaction.model.dart';
@@ -11,7 +10,7 @@ import '../../../components/container_empaty.dart';
 
 // ignore: must_be_immutable
 class TransactionsPage extends StatefulWidget {
-  TransactionsPage(this.listTransaction,this.totalBalance,{super.key});
+  TransactionsPage(this.listTransaction, this.totalBalance, {super.key});
 
   final List<Transaction> listTransaction;
   double totalBalance;
@@ -74,29 +73,33 @@ class _TransactionsPageState extends State<TransactionsPage> {
                     SizedBox(
                       child: Row(
                         children: [
-                        const Icon(Icons.monetization_on_outlined, color: Colors.black38,size: 30),
-                        const SizedBox(width: 10),
-                        Column(
-                          children: [
-                            const Text("Saldo atual",style: TextStyle(fontWeight: FontWeight.w500)),
-                            const SizedBox(height: 3),
-                            Text(widget.totalBalance.formatBRL)
-                          ],
-                        )
-                      ],),
+                          const Icon(Icons.monetization_on_outlined,
+                              color: Colors.black38, size: 30),
+                          const SizedBox(width: 10),
+                          Column(
+                            children: [
+                              const Text("Saldo atual",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.w500)),
+                              const SizedBox(height: 3),
+                              Text(widget.totalBalance.formatBRL)
+                            ],
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
-                const Divider(height: 20, color: Colors.black38,thickness: 1),
-                _controllerPage.getAllTransaction.isEmpty 
-                ? const Expanded(child: ContainerEmpaty())
-                : Expanded(
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: _controllerPage.getAllTransaction.length,
-                    itemBuilder: (_, index) => ListTitleTransactions(_controllerPage.getAllTransaction, index)
-                  ),
-                ),
+                const Divider(height: 20, color: Colors.black38, thickness: 1),
+                _controllerPage.getAllTransaction.isEmpty
+                    ? const Expanded(child: ContainerEmpaty())
+                    : Expanded(
+                        child: ListView.builder(
+                            shrinkWrap: true,
+                            itemCount: _controllerPage.getAllTransaction.length,
+                            itemBuilder: (_, index) => ListTitleTransactions(
+                                _controllerPage.getAllTransaction, index)),
+                      ),
               ],
             ),
           )),

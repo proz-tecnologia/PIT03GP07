@@ -32,6 +32,20 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white10,
+        elevation: 0,
+        leading: Padding(
+          padding: const EdgeInsets.all(5),
+          child: CircleAvatar(
+              radius: 45,
+              backgroundColor: Colors.blue,
+              child: Image.network(
+                "https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large",
+                fit: BoxFit.cover,
+              )),
+        ),
+      ),
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: controllerPage,
