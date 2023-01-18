@@ -1,6 +1,6 @@
 {
-    "name": "belt",
-    "short_name": "belt",
+    "name": "finance_firebase",
+    "short_name": "finance_firebase",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

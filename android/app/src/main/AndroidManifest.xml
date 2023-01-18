@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.belt">
+    package="br.com.minhaaula.finance_firebase">
    <application
-        android:label="belt"
+        android:label="finance_firebase"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

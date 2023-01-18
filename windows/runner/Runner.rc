@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "belt" "\0"
+            VALUE "CompanyName", "br.com.minhaaula" "\0"
+            VALUE "FileDescription", "finance_firebase" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "belt" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "belt.exe" "\0"
-            VALUE "ProductName", "belt" "\0"
+            VALUE "InternalName", "finance_firebase" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2023 br.com.minhaaula. All rights reserved." "\0"
+            VALUE "OriginalFilename", "finance_firebase.exe" "\0"
+            VALUE "ProductName", "finance_firebase" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

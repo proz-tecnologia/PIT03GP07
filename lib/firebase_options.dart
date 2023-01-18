@@ -61,7 +61,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCs0XrEkffOBpD3SkE2bsfNj-kudWlMVpY',
-    appId: '1:102498638331:android:c171bb1863be838573d35e',
+    appId: '1:102498638331:android:772f2aae3fabc78c73d35e',
     messagingSenderId: '102498638331',
     projectId: 'money-belt01',
     storageBucket: 'money-belt01.appspot.com',

@@ -1,4 +1,4 @@
-# belt
+# finance_firebase
 
 A new Flutter project.
 
