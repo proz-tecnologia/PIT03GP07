@@ -7,6 +7,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:102498638331:android:772f2aae3fabc78c73d35e",
+        "android_client_info": {
+          "package_name": "br.com.minhaaula.finance_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "102498638331-8qn7ls858naifjjhprcsg6trhkivm95s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs0XrEkffOBpD3SkE2bsfNj-kudWlMVpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "102498638331-8qn7ls858naifjjhprcsg6trhkivm95s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "102498638331-7ita6656i45cau982btua6ufd33durad.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.testefirebase"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:102498638331:android:c171bb1863be838573d35e",
         "android_client_info": {
           "package_name": "com.example.belt"
