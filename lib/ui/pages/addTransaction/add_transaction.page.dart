@@ -75,7 +75,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
               _progressDialog.hide();
 
               if (result) {
-                Navigator.pop(context);
+                Navigator.popAndPushNamed(context, "/home");
               } else {
                 _alertDialog.showInfo(
                     title: "Ops!",

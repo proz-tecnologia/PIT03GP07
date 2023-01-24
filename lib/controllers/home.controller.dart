@@ -28,6 +28,16 @@ abstract class HomeControllerBase with Store {
   @readonly
   bool _isLoading = false;
 
+  @observable
+  bool _isVisibility = true;
+
+  bool get isVisibility => _isVisibility;
+
+  @action
+  setVisivibility() {
+    _isVisibility = !_isVisibility;
+  }
+
   @action
   increaseMonth() async {
     _isLoading = true;

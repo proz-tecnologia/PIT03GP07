@@ -13,8 +13,27 @@ abstract class TransactionsStoreBase with Store {
 
   double totalTransactions() {
     double value = 0;
-    for (var element in list) {
+    double icome = totalIncome();
+    double expense = totalExpense();
+
+    value = icome - expense;
+    return value;
+  }
+
+  double totalIncome() {
+    double value = 0;
+    var filtred = list.where((e) => e.typeTransaction == "INCOME");
+    for (var element in filtred) {
       value += element.value;
+    }
+    return value;
+  }
+
+  double totalExpense() {
+    double value = 0;
+    var filtred = list.where((e) => e.typeTransaction == "EXPENSE");
+    for (var element in filtred) {
+      value += element.value ;
     }
     return value;
   }
