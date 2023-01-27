@@ -49,6 +49,7 @@ dependencies:
   lottie: ^2.0.0
   stylish_bottom_bar: ^0.1.5
   flutter_speed_dial: ^6.2.0
+  syncfusion_flutter_charts: ^20.3.59
 
 dev_dependencies:
   flutter_test:

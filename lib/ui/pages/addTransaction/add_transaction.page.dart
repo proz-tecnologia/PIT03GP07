@@ -47,7 +47,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
           titleTextStyle: const TextStyle(color: Colors.white),
           leading: IconButton(
               onPressed: () {
-                Navigator.popAndPushNamed(context, "/home");
+                Navigator.popAndPushNamed(context, "/content");
               },
               icon: const Icon(
                 Icons.close,
@@ -75,7 +75,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
               _progressDialog.hide();
 
               if (result) {
-                Navigator.popAndPushNamed(context, "/home");
+                Navigator.popAndPushNamed(context, "/content");
               } else {
                 _alertDialog.showInfo(
                     title: "Ops!",

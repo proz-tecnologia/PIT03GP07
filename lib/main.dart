@@ -1,6 +1,11 @@
+import 'package:money/controllers/content.page.controller.dart';
+import 'package:money/controllers/home.controller.dart';
+import 'package:money/ui/pages/content.page.dart';
+import 'package:money/ui/pages/transactions-page/transactions.page.dart';
+
 import '/controllers/add_category.controller.dart';
 import '/controllers/add_transaction.controller.dart';
-import '/controllers/home.controller.dart';
+import 'controllers/transactions.controller.dart';
 import '/controllers/login.controller.dart';
 import '/controllers/register.controller.dart';
 import '/controllers/splash.controller.dart';
@@ -18,13 +23,14 @@ import '/stores/category.store.dart';
 import '/stores/transactions.store.dart';
 import '/stores/user.store.dart';
 import '/ui/pages/addTransaction/add_transaction.page.dart';
-import '/ui/pages/home.page.dart';
-import '/ui/pages/login.page.dart';
-import '/ui/pages/register.page.dart';
-import '/ui/pages/splash.page.dart';
+import 'ui/pages/home/home.page.dart';
+import 'ui/pages/login/login.page.dart';
+import 'ui/pages/register/register.page.dart';
+import 'ui/pages/splash/splash.page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -49,7 +55,8 @@ void main() async {
         ProfileRepositoryImpl(ProfileService())),
   );
   GetIt.instance.registerFactory(
-    () => HomeController(TransactionRepositoryImpl(TransactionService()),CategoryRepositoryImpl(CategoryService())),
+    () => TransactionsController(
+      TransactionRepositoryImpl(TransactionService()),CategoryRepositoryImpl(CategoryService())),
   );
   GetIt.instance.registerFactory(
     () => AddTransactionController(
@@ -59,6 +66,8 @@ void main() async {
     () => AddCategoryController(
         CategoryRepositoryImpl(CategoryService())),
   );
+  GetIt.instance.registerFactory(() => HomeController());
+  GetIt.instance.registerFactory(() => ContentPageController());
 
   runApp(const MyApp());
 }
@@ -80,7 +89,9 @@ class MyApp extends StatelessWidget {
         '/': (_) => const SplashPage(),
         '/login': (_) => LoginPage(),
         '/register': (_) => RegisterPage(),
+        '/content': (_) =>const  ContentPage(),
         '/home': (_) => const HomePage(),
+        '/transctions': (_) => const TransactionsPage(),
         '/add-income': (_) => const AddTransactionPage(transactionType: "INCOME"),
         '/add-expense': (_) =>const  AddTransactionPage(transactionType: "EXPENSE"),
       },

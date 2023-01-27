@@ -7,6 +7,7 @@ class TransactionsStore = TransactionsStoreBase with _$TransactionsStore;
 
 abstract class TransactionsStoreBase with Store {
   final ObservableList<Transaction> list = ObservableList();
+  final ObservableList<Transaction> listExpense = ObservableList();
 
   @computed
   int get count => list.length;
@@ -41,10 +42,13 @@ abstract class TransactionsStoreBase with Store {
   @action
   replaceList(List<Transaction> transactions) {
     list.clear();
+    listExpense.clear();
     list.addAll(transactions);
     sortOrder();
+    var lisfiltred = list.where((element) => element.typeTransaction == "EXPENSE");
+    listExpense.addAll(lisfiltred);
   }
-
+  
   @action
   addTransaction(Transaction transaction) {
     list.add(transaction);
