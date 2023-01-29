@@ -26,7 +26,7 @@ class _SplashPageState extends State<SplashPage> {
       final response = await _controller.login();
       if (response.isSuccess) {
         if (response.data!) {
-          Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/home");
+          Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/content");
         } else {
           Navigator.pushReplacementNamed(
               navigatorKey.currentContext!, "/login");
@@ -35,6 +35,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/login");
       }
     } else {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, "/login");
     }
   }

@@ -15,6 +15,9 @@ class LoginController {
   String _email = "";
   String _password = "";
 
+  String get email => _email;
+  String get password => _password;
+
   changeEmail(String value) {
     _email = value;
   }

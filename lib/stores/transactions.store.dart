@@ -7,14 +7,34 @@ class TransactionsStore = TransactionsStoreBase with _$TransactionsStore;
 
 abstract class TransactionsStoreBase with Store {
   final ObservableList<Transaction> list = ObservableList();
+  final ObservableList<Transaction> listExpense = ObservableList();
 
   @computed
   int get count => list.length;
 
   double totalTransactions() {
     double value = 0;
-    for (var element in list) {
+    double icome = totalIncome();
+    double expense = totalExpense();
+
+    value = icome - expense;
+    return value;
+  }
+
+  double totalIncome() {
+    double value = 0;
+    var filtred = list.where((e) => e.typeTransaction == "INCOME");
+    for (var element in filtred) {
       value += element.value;
+    }
+    return value;
+  }
+
+  double totalExpense() {
+    double value = 0;
+    var filtred = list.where((e) => e.typeTransaction == "EXPENSE");
+    for (var element in filtred) {
+      value += element.value ;
     }
     return value;
   }
@@ -22,10 +42,13 @@ abstract class TransactionsStoreBase with Store {
   @action
   replaceList(List<Transaction> transactions) {
     list.clear();
+    listExpense.clear();
     list.addAll(transactions);
     sortOrder();
+    var lisfiltred = list.where((element) => element.typeTransaction == "EXPENSE");
+    listExpense.addAll(lisfiltred);
   }
-
+  
   @action
   addTransaction(Transaction transaction) {
     list.add(transaction);
