@@ -4,20 +4,14 @@ import 'package:money/ui/components/set_month.dart';
 import 'package:money/ui/pages/home/widget/card_graphics.dart';
 import '../../../controllers/home.controller.dart';
 import '../../../controllers/transactions.controller.dart';
-import '/extensions/date_time.extension.dart';
-import '/extensions/double.extension.dart';
-import '/models/transaction.model.dart';
 import '/stores/transactions.store.dart';
 import '/stores/user.store.dart';
-import '/ui/components/custom_alert_dialog.component.dart';
 import '/ui/components/progress_dialog.component.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lottie/lottie.dart';
-import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
+
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -33,7 +27,6 @@ class _HomePageState extends State<HomePage> {
   final _transactionsStore = GetIt.instance.get<TransactionsStore>();
 
   final _progressDialog = ProgressDialog();
-  final _alertDialog = CustomAlertDialog();
 
   @override
   void initState() {
@@ -112,7 +105,7 @@ class _HomePageState extends State<HomePage> {
                       : Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Despesa por categoria", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
+                            const Text("Despesa por categoria", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),),
                             const SizedBox(height: 10),
                             CardMain(CardChart(
                                 transaction: _transactionsStore.listExpense,
@@ -125,14 +118,5 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  _removeTransaction(Transaction item) async {
-    _progressDialog.show("Excluindo...");
-    final response = await _controllerTransactions.removeTransaction(item);
-    _progressDialog.hide();
-    if (response.isError) {
-      _alertDialog.showInfo(title: "Ops!", message: response.message!);
-    }
   }
 }

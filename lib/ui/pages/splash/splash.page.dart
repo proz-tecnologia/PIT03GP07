@@ -35,6 +35,7 @@ class _SplashPageState extends State<SplashPage> {
         Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/login");
       }
     } else {
+      // ignore: use_build_context_synchronously
       Navigator.pushReplacementNamed(context, "/login");
     }
   }

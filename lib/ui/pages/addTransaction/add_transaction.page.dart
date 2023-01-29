@@ -75,6 +75,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
               _progressDialog.hide();
 
               if (result) {
+                // ignore: use_build_context_synchronously
                 Navigator.popAndPushNamed(context, "/content");
               } else {
                 _alertDialog.showInfo(

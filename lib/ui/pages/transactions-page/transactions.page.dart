@@ -136,7 +136,7 @@ class _TransactionsPageState extends State<TransactionsPage> {
                                   ],
                                 ),
                               ])
-                            : SizedBox()
+                            : const SizedBox()
                   ],
                 ),
                 const SizedBox(height: 10),

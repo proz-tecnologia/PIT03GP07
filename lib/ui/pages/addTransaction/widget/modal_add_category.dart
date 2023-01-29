@@ -5,6 +5,7 @@ import '../../../../controllers/add_category.controller.dart';
 import '../../../components/custom_alert_dialog.component.dart';
 import '../../../components/progress_dialog.component.dart';
 
+// ignore: must_be_immutable
 class ModaAddlCategory extends StatelessWidget {
   ModaAddlCategory({super.key, required this.transactiontype});
   String transactiontype;
@@ -54,6 +55,7 @@ class ModaAddlCategory extends StatelessWidget {
                     _progressDialog.hide();
 
                     if (result) {
+                      // ignore: use_build_context_synchronously
                       Navigator.pop(context);
                     } else {
                       _alertDialog.showInfo(

@@ -105,11 +105,6 @@ abstract class TransactionsControllerBase with Store {
     return response;
   }
 
-  Future<double> getTotalTransactions()async {
-    double value = 0;
-    var response = await getList();
-    return value;
-  }
 
   Future<APIResponse<bool>> removeTransaction(Transaction item) async {
     final response = await _transactionRepository.remove(item);

@@ -21,10 +21,10 @@ abstract class CategoryStoreBase with Store {
   int get count => list.length;
 
   @action
-  replaceList(List<Category> Category) {
+  replaceList(List<Category> category) {
     list.clear();
     list.addAll(defultCategorys);
-    list.addAll(Category);
+    list.addAll(category);
   }
 
   @action

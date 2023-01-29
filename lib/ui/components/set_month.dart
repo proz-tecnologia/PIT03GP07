@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:money/controllers/transactions.controller.dart';
 
+// ignore: must_be_immutable
 class SetMonth extends StatelessWidget {
   Function functionDecrement;
   Function functionIncrement;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CardMain extends StatelessWidget {
   Widget child;
   CardMain(this.child,{super.key});
