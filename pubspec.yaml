@@ -82,6 +82,8 @@ flutter:
     - assets/lottie/money.json
     - assets/lottie/chart.json
     - assets/lottie/moneylo.json
+    - assets/lottie/wishe.json
+    - assets/lottie/wishe2.json
     - assets/image/moneybelth.png
 
   # An image asset can refer to one or more resolution-specific "variants", see

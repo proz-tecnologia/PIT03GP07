@@ -1,7 +1,13 @@
+import 'package:money/controllers/add_wishe.controller.dart';
 import 'package:money/controllers/content.page.controller.dart';
 import 'package:money/controllers/home.controller.dart';
+import 'package:money/infra/repositories/wishe.repository_impl.dart';
+import 'package:money/infra/services/wishe.service.dart';
+import 'package:money/stores/wishe.store.dart';
+import 'package:money/ui/pages/add_new_wishe/new.wishe.page.dart';
 import 'package:money/ui/pages/content.page.dart';
-import 'package:money/ui/pages/transactions-page/transactions.page.dart';
+import 'package:money/ui/pages/profile/profile.page.dart';
+import 'package:money/ui/pages/transactions/transactions.page.dart';
 
 import '/controllers/add_category.controller.dart';
 import '/controllers/add_transaction.controller.dart';
@@ -41,6 +47,7 @@ void main() async {
   GetIt.instance.registerSingleton(UserStore());
   GetIt.instance.registerSingleton(TransactionsStore());
   GetIt.instance.registerSingleton(CategoryStore());
+  GetIt.instance.registerSingleton(WisheStore());
 
   GetIt.instance.registerFactory(
     () => SplashController(AuthRepositoryImpl(AuthService()),
@@ -63,8 +70,11 @@ void main() async {
         TransactionRepositoryImpl(TransactionService())),
   );
   GetIt.instance.registerFactory(
+    () => AddWisheController(WisheRepositoryImpl(WisheService())),
+  );
+  GetIt.instance.registerFactory(
     () => AddCategoryController(
-        CategoryRepositoryImpl(CategoryService())),
+        CategoryRepositoryImpl(CategoryService()),CategoryRepositoryImpl(CategoryService())),
   );
   GetIt.instance.registerFactory(() => HomeController());
   GetIt.instance.registerFactory(() => ContentPageController());
@@ -94,6 +104,8 @@ class MyApp extends StatelessWidget {
         '/transctions': (_) => const TransactionsPage(),
         '/add-income': (_) => const AddTransactionPage(transactionType: "INCOME"),
         '/add-expense': (_) =>const  AddTransactionPage(transactionType: "EXPENSE"),
+        '/add-wishe': (_) =>const  AddNewWishe(),
+        '/profile': (_) =>const  ProfilePage(),
       },
     );
   }

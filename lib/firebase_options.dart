@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAJKpAT6S1Kmd3rxmejzJkviy3QGo0b2cY',
-    appId: '1:102498638331:web:349f3c7ab398835b73d35e',
-    messagingSenderId: '102498638331',
-    projectId: 'money-belt01',
-    authDomain: 'money-belt01.firebaseapp.com',
-    storageBucket: 'money-belt01.appspot.com',
-    measurementId: 'G-RBGNMDDESQ',
+    apiKey: 'AIzaSyAjle3SOjS3aSVKhZSyeh02T7YWC8DcSYQ',
+    appId: '1:101201322653:web:2aa1365516853152ffea74',
+    messagingSenderId: '101201322653',
+    projectId: 'money-belt-proz',
+    authDomain: 'money-belt-proz.firebaseapp.com',
+    storageBucket: 'money-belt-proz.appspot.com',
+    measurementId: 'G-JTJPJ5Q6SF',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCs0XrEkffOBpD3SkE2bsfNj-kudWlMVpY',
-    appId: '1:102498638331:android:772f2aae3fabc78c73d35e',
-    messagingSenderId: '102498638331',
-    projectId: 'money-belt01',
-    storageBucket: 'money-belt01.appspot.com',
+    apiKey: 'AIzaSyBl8TBpLiaX2xr6gpgTFgTCVq7fciLALaI',
+    appId: '1:101201322653:android:856e31ddcc105e06ffea74',
+    messagingSenderId: '101201322653',
+    projectId: 'money-belt-proz',
+    storageBucket: 'money-belt-proz.appspot.com',
   );
 }

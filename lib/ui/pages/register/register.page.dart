@@ -65,7 +65,7 @@ class RegisterPage extends StatelessWidget {
     _progressDialog.show("Cadastrando...");
     final response = await _controller.doRegister();
     if (response.isSuccess) {
-      Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/home");
+      Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/content");
     } else {
       _progressDialog.hide();
       _alertDialog.showInfo(title: "Ops!", message: response.message!);

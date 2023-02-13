@@ -1,3 +1,4 @@
+import '../models/api_response.model.dart';
 import '/models/category.model.dart';
 import 'package:get_it/get_it.dart';
 
@@ -6,8 +7,9 @@ import '../stores/category.store.dart';
 
 class AddCategoryController {
   final CategoryRepository _repository;
+  final CategoryRepository _categoryRepository;
 
-  AddCategoryController(this._repository);
+  AddCategoryController(this._repository, this._categoryRepository);
 
   final _store = GetIt.instance.get<CategoryStore>();
 
@@ -21,5 +23,14 @@ class AddCategoryController {
     } else {
       return false;
     }
+  }
+
+  Future<APIResponse<List<Category>>> getListCategory() async {
+    final response = await _categoryRepository.getAllCatecorys();
+    if (response.isSuccess) {
+      final store = GetIt.instance.get<CategoryStore>();
+      store.replaceList(response.data!);
+    }
+    return response;
   }
 }

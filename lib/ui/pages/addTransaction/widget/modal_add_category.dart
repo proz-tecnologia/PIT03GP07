@@ -27,6 +27,7 @@ class ModaAddlCategory extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         height: 400,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const Text(
               "Cadastrar Categoria",
@@ -45,7 +46,6 @@ class ModaAddlCategory extends StatelessWidget {
             ),
             ElevatedButton(
                 onPressed: () async {
-                
                     _progressDialog.show("Salvando categoria...");
 
                     final result =
@@ -63,8 +63,9 @@ class ModaAddlCategory extends StatelessWidget {
                           message:
                               "Alguma falha aconteceu, tente novamente mais tarde!");
                     }
+                    
                 },
-                child: const Text("Cadastrar"))
+                child: const Text("Cadastrar", style: TextStyle(fontSize: 18)))
           ],
         ),
       ),

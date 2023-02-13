@@ -91,6 +91,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
             child: Form(
               key: _formKey,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(
                     height: 24,
@@ -177,6 +178,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
                                   value: e, child: Text(e.name)))
                               .toList(),
                       onChanged: (value) => _category = value!.name),
+                      const SizedBox(height: 10),
                   ElevatedButton(
                       onPressed: () {
                         showModalBottomSheet(
@@ -188,7 +190,7 @@ class _AddTransactionPageState extends State<AddTransactionPage> {
                             builder: (context) => ModaAddlCategory(
                                 transactiontype: widget.transactionType));
                       },
-                      child: const Text("Cadastrar categoria"))
+                      child: const Text("Cadastrar categoria", style: TextStyle(fontSize: 18)))
                 ],
               ),
             )));
