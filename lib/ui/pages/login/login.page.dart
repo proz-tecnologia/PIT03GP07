@@ -82,7 +82,7 @@ class LoginPage extends StatelessWidget {
     _progressDialog.show("Autenticando...");
     final response = await _controller.doLogin();
     if (response.isSuccess) {
-      Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/home");
+      Navigator.pushReplacementNamed(navigatorKey.currentContext!, "/content");
     } else {
       _progressDialog.hide();
       _alertDialog.showInfo(title: "Ops!", message: response.message!);
